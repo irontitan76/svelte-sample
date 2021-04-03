@@ -1,0 +1,14 @@
+:root {
+	--color-primary-main: #004B8D;
+	--color-primary-light: #3769A2;
+	--color-primary-lighter: #3ca3ff;
+
+	--color-primary-text: #ffffff;
+	--color-secondary-text: #fefefe;
+
+	font-family: 'Red Hat Text', 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+	margin: 0;
+}
