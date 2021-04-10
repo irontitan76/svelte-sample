@@ -1,14 +1,63 @@
 :root {
+	--color-common-black: #000;
+	--color-common-white: #fff;
+
+	--color-primary-contrast-text: #fff;
+	--color-primary-dark: rgb(0, 52, 98);
 	--color-primary-main: #004B8D;
 	--color-primary-light: #3769A2;
 	--color-primary-lighter: #3ca3ff;
 
-	--color-primary-text: #ffffff;
-	--color-secondary-text: #fefefe;
+	--color-secondary-contrast-text: #fff;
+	/* --color-secondary-dark: rgb(0, 52, 98); */
+	--color-secondary-main: #2ea44f;
+	--color-secondary-light: rgb(87, 182, 114);
 
-	font-family: 'Red Hat Text', 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --shadows-1: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+
+	--spacing-1: 10px;
+  --spacing-1_5: 12px;
+	--spacing-2: 16px;
+	--spacing-3: 24px;
+	--spacing-4: 32px;
+	--spacing-5: 40px;
+	--spacing-6: 48px;
+	--spacing-7: 56px;
+	--spacing-8: 64px;
+	--spacing-9: 72px;
+	--spacing-10: 80px;
+
+	--font-family-heading: 'Red Hat Text', 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	--font-family-text: 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+
+	--shadows-1: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+
+	font-family: var(--font-family-text)
+}
+
+.light {
+  --color-background-accent: #f2f2f2;
+  --color-background-default: #fafafa;
+  --color-background-paper: #fff;
+
+  --color-primary-text: #333;
+	--color-secondary-text: #fefefe;
+}
+
+.dark {
+  --color-background-accent: #0F1218;
+  --color-background-default: #070910;
+  --color-background-paper: #161C21;
+
+  --color-primary-text: #ddd;
+	--color-secondary-text: #010101;
 }
 
 html, body {
+  background-color: var(--color-background-default);
+  color: var(--color-primary-text);
 	margin: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
