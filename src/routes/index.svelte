@@ -13,14 +13,50 @@
 
 <Vanta type="waves" />
 
-<section class="hero" id='vanta-container'>
-  <div class="constrain">
-    <h1>Welcome to the Reformation</h1>
-    <h2>
+<section id='vanta-container'>
+  <div class="
+    content-center
+    flex
+    flex-wrap
+    items-center
+    h-screen 
+    justify-center
+    mx-auto
+    my-0
+    max-w-screen-2xl
+  ">
+    <h1 class="
+      flex-auto
+      font-bold
+      font-heading
+      mb-5
+      mx-auto
+      text-center
+      text-primary-contrast
+      text-8xl
+      tracking-widest
+      uppercase
+      w-full"
+    >
+      Welcome to the Reformation
+    </h1>
+    <h2 class="
+      flex-auto
+      font-medium
+      font-heading
+      mb-24
+      mx-auto
+      text-center
+      text-primary-contrast
+      text-2xl
+      tracking-widest
+      uppercase
+      w-full
+    ">
       Building
-      <span>modern</span>
+      <span class="text-primary-lighter">modern</span>
       government with
-      <span>intelligent</span>
+      <span class="text-secondary">intelligent</span>
       design
     </h2>
     <Button href='/insights'>Learn more</Button>
@@ -42,7 +78,7 @@
   ]}
 />
 
-<section class="constrain" id="overview">
+<section class="mx-auto mt-16 max-w-screen-2xl" id="overview">
   <Heading
     subtitle="CHASING A PEACEFUL AND PROSPEROUS NATION"
     title="FREEDOM IS OUR FOUNDATION"
@@ -52,70 +88,15 @@
   </div>
 </section>
 
-<section class="constrain" id="recent-insights">
+<section class="mx-auto my-0 max-w-screen-2xl" id="recent-insights">
   <Heading
     subtitle="EMBRACE OPEN INNOVATION AND NEW WAYS OF THINKING"
     title="EXPLORE INSIGHTS"
   />
-  <div class=container>
+  <div class="flex flex-1 flex-wrap justify-center">
     <Article />
     <Article />
     <Article />
     <Article />
   </div>
 </section>
-
-<style>
-  .container {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .container > :global(*) {
-    margin: var(--spacing-3);
-  }
-
-  .hero > div {
-    align-content: center;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    height: calc(100vh - var(--spacing-6));
-    justify-content: center;
-  }
-
-  .hero h1 {
-    color: var(--color-primary-contrast-text);
-    flex-basis: 100%;
-    font-family: var(--font-family-heading);
-    font-size: 6vw;
-    font-weight: bold;
-    margin: 0 auto;
-    letter-spacing: 5px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100vw;
-  }
-
-  .hero h2 {
-    color: var(--color-primary-contrast-text);
-    flex-basis: 100%;
-    font-family: var(--font-family-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-6);
-    letter-spacing: 6px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  .hero h2 span:first-of-type {
-    color: var(--color-primary-lighter);
-  }
-
-  .hero h2 span:last-of-type {
-    color: var(--color-secondary-light);
-  }
-</style>

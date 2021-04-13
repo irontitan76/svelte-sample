@@ -1,141 +1,100 @@
 <script lang="ts">
+  export let alt = "pic";
+  export let src = "https://images.unsplash.com/photo-1596693760506-8542d308bd7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80";
   export let title = 'Sample title';
   export let subtitle = 'Sample subtitle';
 
   import Avatar from "$lib/Avatar.svelte";
 </script>
 
-<a href="/insights/test">
-  <div class="card">
-    <img alt="pic" src="https://images.unsplash.com/photo-1596693760506-8542d308bd7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80">
-    <div class="content">
-      <div>
-        <div class="category">Category</div>
-        <h2>{title}</h2>
-        <h3>{subtitle}</h3>
+<a
+  class="cursor-pointer no-underline text-inherit"
+  href="/insights/test"
+>
+  <div class="bg-background-accent group h-128 m-5 relative shadow-5 w-80">
+    <img
+      alt={alt}
+      class="block h-full w-full"
+      src={src}
+    />
+    <div class="relative">
+      <div class="
+        absolute
+        bg-background-paper
+        bottom-0
+        box-border
+        duration-500
+        ease-in-out
+        flex
+        flex-wrap
+        group-hover:-translate-y-16
+        h-24
+        items-center
+        left-0
+        p-5
+        transform
+        transition-all
+        w-full
+        z-10
+      ">
+        <div class="
+          absolute
+          bg-background-alpha
+          px-6
+          py-1
+          text-white
+          text-xs
+          tracking-wide
+          -top-6
+          uppercase
+        ">
+          Category
+        </div>
+        <h2 class="
+          font-heading
+          font-medium
+          m-0
+          m-b-5
+          text-left
+          text-xl
+          w-full
+        ">
+          {title}
+        </h2>
+        <h3
+          class="
+            font-heading
+            font-light
+            m-0
+            m-b-5
+            text-gray-500
+            text-left
+            text-md
+          "
+        >
+          {subtitle}
+        </h3>
       </div>
     </div>
-    <div class="profile">
+    <div class="
+      absolute
+      bg-background-accent
+      bottom-0
+      items-center
+      flex
+      h-16
+      p-5
+      w-full
+      z-0
+    ">
       <Avatar
         alt="Ross Sheppard"
         src="https://avatars.githubusercontent.com/u/10472920?s=60&v=4"
       />
-      <div class="info">
-        <div class="name">Ross Sheppard</div>
-        <div class="position">Founder & CEO</div>
+      <div class="ml-5 text-left">
+        <div class="font-semibold text-md">Ross Sheppard</div>
+        <div class="text-sm">Founder & CEO</div>
       </div>
     </div>
   </div>
 </a>
-
-<style>
-  a {
-    color: inherit;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .card {
-    background-color: var(--color-background-accent);
-    box-shadow: var(--shadows-1);
-    height: 450px;
-    position: relative;
-    width: 350px;
-  }
-
-  .card img {
-    display: block;
-    height: 350px;
-    width: 100%;
-  }
-
-  .category {
-    background-color: rgb(0, 0, 0, .6);
-    color: var(--color-common-white);
-    font-size: 10px;
-    letter-spacing: 4px;
-    padding: 4px var(--spacing-2);
-    position: absolute;
-    text-transform: uppercase;
-    top: -22px;
-  }
-
-  .content {
-    position: relative;
-  }
-
-  .content > div {
-    align-items: center;
-    background-color: var(--color-background-paper);
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100px;
-    left: 0;
-    padding: var(--spacing-2);
-    position: absolute;
-    transition: all .3s ease-in-out;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .content h2 {
-    font-family: var(--font-family-heading);
-    font-size: 20px;
-    font-weight: 500;
-    margin: 0;
-    margin-bottom: var(--spacing-1);
-    text-align: left;
-    width: 100%;
-  }
-
-  .content h3 {
-    color: grey;
-    font-family: var(--font-family-heading);
-    font-size: 16px;
-    font-weight: 300;
-    margin: 0;
-    text-align: left;
-    width: 100%;
-  }
-
-  .card:hover .content > div {
-    transform: translateY(-60px);
-  }
-
-  .info {
-    margin-left: var(--spacing-2);
-    text-align: left;
-  }
-
-  .info > div:first-of-type {
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .info > div:last-of-type {
-    font-size: 12px;
-  }
-
-  .profile {
-    align-items: center;
-    bottom: 0;
-    display: flex;
-    height: 60px;
-    padding: 0 var(--spacing-2);
-    position: absolute;
-    z-index: 1;
-  }
-
-  @media screen and (max-width: 800px) {
-    .card {
-      height: 600px;
-      width: 100%;
-    }
-
-    .card img {
-      height: 500px;
-    }
-  }
-</style>

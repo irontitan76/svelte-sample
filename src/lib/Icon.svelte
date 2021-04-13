@@ -11,8 +11,8 @@
   if (lib === 'regular') library = 'far';
   if (lib === 'solid') library = 'fas';
 </script>
-  
-<i class={`${library} fa-${icon} fa-${size} ${variant}`} {...$$restProps}></i>
+
+<i class={`${library} fa-${icon} fa-${size} ${variant} ${$$props.class}`}></i>
 
 <style>
   .default {

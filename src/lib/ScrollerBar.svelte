@@ -5,7 +5,7 @@
 </script>
 
 <div class="root">
-  <div class="constrain">
+  <div class="mx-auto my-0 max-w-screen-2xl">
     {#each items as item}
       <a class="item" href={item.href}>
         <Icon lib="light" icon={item.icon} size='lg' variant="primary" />

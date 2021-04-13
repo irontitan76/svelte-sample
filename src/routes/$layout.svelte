@@ -1,6 +1,6 @@
 <script context="module">
 	import Navigation from '$lib/Navigation.svelte';
-	import '../app.css';
+	import '../app.postcss';
 </script>
 
 <script>
