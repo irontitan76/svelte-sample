@@ -15,7 +15,7 @@
 <style>
   a {
     color: inherit;
-    font-size: 14px;
+    font-size: 15px;
     height: 100%;
     text-decoration: none;
   }

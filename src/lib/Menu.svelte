@@ -78,5 +78,6 @@
     padding: 4px 0;
     position: absolute;
     top: 64px;
+    z-index: 1200;
   }
 </style>

@@ -1,12 +1,20 @@
 <script context="module">
+  import Footer from '$lib/Footer.svelte';
 	import Navigation from '$lib/Navigation.svelte';
 	import '../app.css';
+
+	export async function load({ page, fetch, session, context }) {
+    return { props: { path: page.path } };
+	};
 </script>
+
 
 <script>
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
   import { browser } from '$app/env';
+
+  export let path;
 
   let contrast = writable("light");
 
@@ -52,6 +60,10 @@
   <div class="gutter" />
   <slot />
 </main>
+
+{#if browser && !path.includes("/login")}
+  <Footer />
+{/if}
 
 <style>
 	main {

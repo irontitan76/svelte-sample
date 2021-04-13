@@ -43,7 +43,7 @@
         on:click={() => handleToggle(item.name)}
       >
         {item.name}
-        <Icon icon="chevron-right" lib="light" />
+        <Icon icon="chevron-right" lib="solid" />
       </li>
       {#if open[item.name]}
         <li class="expanded" transition:slide>

@@ -26,6 +26,14 @@
   <Article />
   <Article />
   <Article />
+  <Article />
+  <Article />
+  <Article />
+  <Article />
+  <Article />
+  <Article />
+  <Article />
+  <Article />
 </section>
 
 <style>
@@ -50,7 +58,7 @@
     position: sticky;
     top: 64px;
     width: 100%;
-    z-index: 1100;
+    z-index: 1000;
   }
 
   .title {

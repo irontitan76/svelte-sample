@@ -3,44 +3,40 @@
 </svelte:head>
 
 <script lang="ts">
-  import Alert from '$lib/Alert.svelte';
   import Article from '$lib/Article.svelte';
   import Button from '$lib/Button.svelte';
   import Heading from '$lib/Heading.svelte';
   import ScrollerBar from '$lib/ScrollerBar.svelte';
   import Vanta from '$lib/Vanta.svelte';
+  import { messages } from '$lib/lang/en-US.svelte';
+
+  const msg = ({ id }) => messages({ id: `landing.${id}` });
+
+  const scrollerItems = [
+    {
+      href: '#overview',
+      icon: 'telescope',
+      label: msg({ id: 'scroller.item.0'}),
+    },
+    {
+      href: '#recent-insights',
+      icon: 'history',
+      label: msg({ id: 'scroller.item.1'}),
+    },
+  ];
 </script>
 
 <Vanta type="waves" />
 
 <section class="hero" id='vanta-container'>
   <div class="constrain">
-    <h1>Welcome to the Reformation</h1>
-    <h2>
-      Building
-      <span>modern</span>
-      government with
-      <span>intelligent</span>
-      design
-    </h2>
-    <Button href='/insights'>Learn more</Button>
+    <h1>{msg({ id: 'hero.h1' })}</h1>
+    <h2>{@html msg({ id: 'hero.h2' })}</h2>
+    <Button href='/insights'>{msg({ id: 'hero.button' })}</Button>
   </div>
 </section>
 
-<ScrollerBar
- items={[
-    {
-      href: '#overview',
-      icon: 'telescope',
-      label: 'Overview',
-    },
-    {
-      href: '#recent-insights',
-      icon: 'history',
-      label: 'Recent insights'
-    },
-  ]}
-/>
+<ScrollerBar items={scrollerItems} />
 
 <section class="constrain" id="overview">
   <Heading
@@ -57,11 +53,17 @@
     subtitle="EMBRACE OPEN INNOVATION AND NEW WAYS OF THINKING"
     title="EXPLORE INSIGHTS"
   />
-  <div class=container>
+  <div class="container">
     <Article />
     <Article />
     <Article />
     <Article />
+    <Button
+      color="primary"
+      href="/insights"
+    >
+      Read more
+  </Button>
   </div>
 </section>
 
@@ -111,11 +113,11 @@
     text-transform: uppercase;
   }
 
-  .hero h2 span:first-of-type {
+  :global(.hero h2 span:first-of-type) {
     color: var(--color-primary-lighter);
   }
 
-  .hero h2 span:last-of-type {
+  :global(.hero h2 span:last-of-type) {
     color: var(--color-secondary-light);
   }
 </style>

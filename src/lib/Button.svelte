@@ -1,8 +1,9 @@
 <script>
+  export let color = "default";
   export let href;
 </script>
 
-<a href={href}>
+<a class={color} href={href}>
   <slot />
 </a>
 
@@ -29,5 +30,14 @@
 
   a:hover {
     background-color: var(--color-background-accent);
+  }
+
+  .default {
+    background-color: var(--color-background-paper);
+  }
+
+  .primary {
+    background-color: var(--color-primary-main);
+    color: var(--color-primary-contrast-text);
   }
 </style>
