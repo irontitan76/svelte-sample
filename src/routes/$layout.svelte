@@ -4,27 +4,50 @@
 </script>
 
 <script>
-  import { onMount, setContext } from 'svelte';
+  import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
+  import { browser } from '$app/env';
 
-  $: contrast = null;
+  let contrast = writable("light");
 
-  const updateContrast = () => {
-    const element = document?.querySelector("body");
-    element.classList.toggle(contrast);
-
-    contrast = contrast === "light" ? "dark" : "light";
-    element.classList.toggle(contrast);
+  const updateContrast = (updatedContrast) => {
+    if (browser) {
+      const element = document?.querySelector("body");
+      element.classList.remove(updatedContrast === "light" ? "dark" : "light");
+      element.classList.add(updatedContrast);
+      $contrast = updatedContrast;
+    }
   };
 
-  onMount(() => {
-    updateContrast();
-  });
+  contrast.subscribe(updateContrast);
+  setContext("contrast", contrast);
 
-  setContext("contrast", { updateContrast, mode: contrast });
+  const routes = [
+    {
+      children: [
+        { href: "/about/issues", name: "The Issues" },
+        { href: "/about/leadership", name: "Leadership" },
+      ],
+      href: "/about",
+      name: "About",
+    },
+    {
+      children: [
+        { href: "/insights/read", name: "Articles" },
+        { href: "/insights/watch", name: "Videos" },
+      ],
+      href: "/insights",
+      name: "Insights",
+    },
+  ];
 </script>
 
-<Navigation />
+<Navigation
+  menu={routes}
+  prefix="THE"
+  suffix="PARTY"
+  title="FREEDOM"
+/>
 <main>
   <div class="gutter" />
   <slot />
@@ -37,6 +60,11 @@
 		min-height: calc(100vh - var(--spacing-8));
 		text-align: center;
 	}
+
+  main :global(.constrain) {
+    margin: 0 auto;
+    max-width: var(--view-width);
+  }
 
 	.gutter {
 		height: var(--spacing-8);;

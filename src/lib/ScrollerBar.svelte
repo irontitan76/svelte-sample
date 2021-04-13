@@ -5,12 +5,14 @@
 </script>
 
 <div class="root">
-  {#each items as item}
-    <a class="item" href={item.href}>
-      <Icon lib="light" icon={item.icon} size='lg' variant="primary" />
-      <span>{item.label}</span>
-    </a>
-  {/each}
+  <div class="constrain">
+    {#each items as item}
+      <a class="item" href={item.href}>
+        <Icon lib="light" icon={item.icon} size='lg' variant="primary" />
+        <span>{item.label}</span>
+      </a>
+    {/each}
+  </div>
 </div>
 
 <style>
@@ -38,15 +40,17 @@
   }
 
   .root {
-    align-items: center;
     background-color: var(--color-background-paper);
     box-shadow: var(--shadows-1);
-    display: flex;
-    justify-content: start;
-    min-height: 48px;
     padding: 0 var(--spacing-2);
     position: sticky;
     top: 64px;
     z-index: 1100;
+  }
+
+  .root > div {
+    align-items: center;
+    display: flex;
+    min-height: 48px;
   }
 </style>

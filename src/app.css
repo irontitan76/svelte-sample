@@ -10,8 +10,11 @@
 
 	--color-secondary-contrast-text: #fff;
 	/* --color-secondary-dark: rgb(0, 52, 98); */
-	--color-secondary-main: #2ea44f;
-	--color-secondary-light: rgb(87, 182, 114);
+	/* --color-secondary-main: #2ea44f;
+	--color-secondary-light: rgb(87, 182, 114); */
+	--color-secondary-light: rgb(255, 55, 55);
+	--color-secondary-main: rgb(236, 26, 26);
+	--color-secondary-dark: rgb(182, 29, 29);
 
   --shadows-1: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 
@@ -30,7 +33,7 @@
 	--font-family-heading: 'Red Hat Text', 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	--font-family-text: 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
-	--shadows-1: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  --view-width: 1920px;
 
 	font-family: var(--font-family-text)
 }
@@ -41,7 +44,9 @@
   --color-background-paper: #fff;
 
   --color-primary-text: #333;
-	--color-secondary-text: #fefefe;
+  --color-secondary-text: #fefefe;
+
+  --shadows-1: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 
 .dark {
@@ -51,6 +56,8 @@
 
   --color-primary-text: #ddd;
 	--color-secondary-text: #010101;
+
+  --shadows-1: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(255 255 255 / 14%), 0px 1px 3px 0px rgb(255 255 255 / 12%);
 }
 
 html, body {

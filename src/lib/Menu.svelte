@@ -67,6 +67,7 @@
   }
 
   .menu {
+    background-color: var(--color-background-paper);
     box-shadow: var(--shadows-1);
     color: var(--color-primary-text);
     font-family: var(--font-family-text);
@@ -74,7 +75,7 @@
     list-style-type: none;
     margin: 0;
     min-width: 250px;
-    padding: 0;
+    padding: 4px 0;
     position: absolute;
     top: 64px;
   }

@@ -8,60 +8,86 @@
   import Menu from "$lib/Menu.svelte";
   import MenuItem from "$lib/MenuItem.svelte";
 
-  const context = getContext("contrast");
+  export let menu;
+  export let prefix;
+  export let title;
+  export let suffix;
+
+  const contrast = getContext("contrast");
   const handleContrast = () => {
-    context.updateContrast();
+    contrast.update(prev => prev === "light" ? "dark" : "light");
+  };
+
+  export const load = async ({ page }) => {
+    return { props: { path: page.path }};
   };
 </script>
 
 <nav>
   <div>
-    <a href="/">FUSION</a>
-  </div>
-  <div>
-    <Menu href="/about" name="About">
-      <MenuItem href="/about/leadership">Leadership</MenuItem>
-    </Menu>
-    <Menu href="/services" name="Services">
-      <MenuItem href="/services/design">Design</MenuItem>
-      <MenuItem href="/services/develop">Develop</MenuItem>
-    </Menu>
-    <Menu href="/insights" name="Insights">
-      <MenuItem href="/insights/read">Articles</MenuItem>
-      <MenuItem href="/insights/watch">Videos</MenuItem>
-    </Menu>
-  </div>
-  <div class="actions">
-    <IconButton
-      on:click={handleContrast}
-      icon="palette"
-      lib="light"
-      size="md"
-    />
-    <IconButton
-      href="/login"
-      icon="sign-in"
-      lib="light"
-      size="md"
-    />
+    <div class="logo">
+      <a href="/">
+        {#if prefix}
+          <span>{prefix}</span>
+        {/if}
+
+        {#if title}
+          {title}
+        {/if}
+
+        {#if suffix}
+          <span>{suffix}</span>
+        {/if}
+      </a>
+    </div>
+    <div class="menu">
+      {#each menu as item}
+        <Menu href={item.href} name={item.name}>
+          {#each item.children as child}
+            <MenuItem href={child.href}>{child.name}</MenuItem>
+          {/each}
+        </Menu>
+      {/each}
+    </div>
+    <div class="actions">
+      <IconButton
+        on:click={handleContrast}
+        color="primary"
+        icon="palette"
+        lib="light"
+        size="md"
+      />
+      <IconButton
+      color="primary"
+        href="/login"
+        icon="sign-in"
+        lib="light"
+        size="md"
+      />
+    </div>
   </div>
 </nav>
 
 <style>
   nav {
-    align-items: center;
     background-color: var(--color-primary-main);
     box-shadow: var(--shadows-1);
     box-sizing: border-box;
-    display: flex;
     height: var(--spacing-8);
-    justify-content: space-between;
     left: 0;
     padding: 0 24px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1100;
+  }
+
+  nav > div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--view-width);
   }
 
   div {
@@ -72,19 +98,38 @@
     letter-spacing: 3px;
   }
 
-  a {
-    color: inherit;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
   .actions {
     align-items: center;
     display: flex;
+    flex-basis: 25%;
     justify-content: flex-end;
   }
 
   .actions :global(:not(:first-of-type)) {
     margin-left: var(--spacing-1);
+  }
+
+  .logo {
+    display: flex;
+    flex-basis: 25%;
+  }
+
+  .logo a {
+    color: inherit;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .logo span {
+    color: var(--color-primary-lighter);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .menu {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
   }
 </style>

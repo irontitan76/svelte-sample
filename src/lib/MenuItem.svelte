@@ -15,15 +15,17 @@
 <style>
   a {
     color: inherit;
+    font-size: 14px;
     height: 100%;
     text-decoration: none;
   }
 
   li {
-    background-color: var(--color-background-paper);
+    background-color: transparent;
     border-left: 2px solid transparent;
     cursor: pointer;
-    padding: var(--spacing-1_5) var(--spacing-2);
+    margin: 3px 0;
+    padding: 4px var(--spacing-2);
     transition: all .3s ease-in-out;
   }
 

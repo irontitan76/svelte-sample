@@ -12,11 +12,11 @@
   if (lib === 'solid') library = 'fas';
 </script>
   
-<i class={`${library} fa-${icon} fa-${size} ${variant}`}></i>
+<i class={`${library} fa-${icon} fa-${size} ${variant}`} {...$$restProps}></i>
 
 <style>
   .default {
-    color: var(--color-common-white);
+    color: inherit;
   }
 
   .primary {
