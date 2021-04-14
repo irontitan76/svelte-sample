@@ -12,6 +12,7 @@
 <script>
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
+  import { fade } from 'svelte/transition';
   import { browser } from '$app/env';
 
   export let path;
@@ -56,7 +57,7 @@
   suffix="PARTY"
   title="FREEDOM"
 />
-<main>
+<main in:fade>
   <div class="gutter" />
   <slot />
 </main>

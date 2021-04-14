@@ -3,21 +3,11 @@
 </svelte:head>
 
 <script>
-  import Accordion from '$lib/Accordion.svelte';
+  import { fade } from 'svelte/transition';
   import Heading from '$lib/Heading.svelte';
-
-  const issues = [
-    { name: 'Commerce' },
-    { name: 'Defense' },
-    { name: 'Health' },
-    { name: 'Justice' },
-    { name: 'Infrastructure' },
-    { name: 'State' },
-    { name: 'Treasury' },
-  ];
 </script>
 
-<article class="constrain container">
+<article class="constrain container" in:fade>
   <section>
     <Heading title="Our Mission" />
     Welcome to the Freedom Party website. We're happy you're here.

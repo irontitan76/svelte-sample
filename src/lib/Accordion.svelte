@@ -38,7 +38,8 @@
   <ul class="items">
     {#each items as item}
       <li
-        class={`item ${open[item.name] ? "open" : null}`}
+        class="item"
+        class:open={open[item.name]}
         in:slide
         on:click={() => handleToggle(item.name)}
       >
@@ -46,7 +47,10 @@
         <Icon icon="chevron-right" lib="solid" />
       </li>
       {#if open[item.name]}
-        <li class="expanded" transition:slide>
+        <li
+          class="expanded"
+          transition:slide
+        >
           {@html item.desc}
         </li>
       {/if}

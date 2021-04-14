@@ -1,5 +1,9 @@
+<script>
+  import { scale } from 'svelte/transition';
+</script>
+
 <div class="root">
-  <dialog open>
+  <dialog open in:scale>
     Hello
   </dialog>
 </div>

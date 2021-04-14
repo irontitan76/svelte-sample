@@ -3,7 +3,7 @@
   export let href;
 </script>
 
-<a class={color} href={href}>
+<a class={`${color} ${$$restProps.class}`} href={href}>
   <slot />
 </a>
 
@@ -28,16 +28,21 @@
     width: 250px;
   }
 
-  a:hover {
-    background-color: var(--color-background-accent);
-  }
-
   .default {
     background-color: var(--color-background-paper);
+    color: var(--color-primary-text);
+  }
+
+  .default:hover {
+    background-color: var(--color-background-accent);
   }
 
   .primary {
     background-color: var(--color-primary-main);
     color: var(--color-primary-contrast-text);
+  }
+
+  .primary:hover {
+    background-color: var(--color-primary-dark);
   }
 </style>

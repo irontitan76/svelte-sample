@@ -3,25 +3,26 @@
 </svelte:head>
 
 <script lang="ts">
+  import { fade } from 'svelte/transition';
   import Article from '$lib/Article.svelte';
   import Button from '$lib/Button.svelte';
   import Heading from '$lib/Heading.svelte';
   import ScrollerBar from '$lib/ScrollerBar.svelte';
   import Vanta from '$lib/Vanta.svelte';
-  import { messages } from '$lib/lang/en-US.svelte';
+  import { formatMessage } from '$lib/lang/en-US.svelte';
 
-  const msg = ({ id }) => messages({ id: `landing.${id}` });
+  const text = ({ id }) => formatMessage({ id: `landing.${id}` });
 
   const scrollerItems = [
     {
       href: '#overview',
       icon: 'telescope',
-      label: msg({ id: 'scroller.item.0'}),
+      label: text({ id: 'scroller.item.0'}),
     },
     {
       href: '#recent-insights',
       icon: 'history',
-      label: msg({ id: 'scroller.item.1'}),
+      label: text({ id: 'scroller.item.1'}),
     },
   ];
 </script>
@@ -29,10 +30,10 @@
 <Vanta type="waves" />
 
 <section class="hero" id='vanta-container'>
-  <div class="constrain">
-    <h1>{msg({ id: 'hero.h1' })}</h1>
-    <h2>{@html msg({ id: 'hero.h2' })}</h2>
-    <Button href='/insights'>{msg({ id: 'hero.button' })}</Button>
+  <div class="constrain" in:fade={{ delay: 1000 }}>
+    <h1>{text({ id: 'hero.h1' })}</h1>
+    <h2>{@html text({ id: 'hero.h2' })}</h2>
+    <Button href='/insights'>{text({ id: 'hero.button' })}</Button>
   </div>
 </section>
 
@@ -40,39 +41,41 @@
 
 <section class="constrain" id="overview">
   <Heading
-    subtitle="CHASING A PEACEFUL AND PROSPEROUS NATION"
-    title="FREEDOM IS OUR FOUNDATION"
+    subtitle='landing.overview.subtitle'
+    title='landing.overview.title'
   />
   <div>
 
   </div>
 </section>
 
-<section class="constrain" id="recent-insights">
+<section class="constrain insights" id="recent-insights">
   <Heading
-    subtitle="EMBRACE OPEN INNOVATION AND NEW WAYS OF THINKING"
-    title="EXPLORE INSIGHTS"
+    subtitle='landing.insights.subtitle'
+    title='landing.insights.title'
   />
   <div class="container">
     <Article />
     <Article />
     <Article />
     <Article />
-    <Button
-      color="primary"
-      href="/insights"
-    >
-      Read more
-  </Button>
   </div>
+  <Button
+    color="primary"
+    href="/insights"
+  >
+    {text({ id: 'insights.button'})}
+  </Button>
 </section>
 
 <style>
+  
   .container {
     display: flex;
     flex: 1;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: var(--spacing-4);
   }
 
   .container > :global(*) {
@@ -111,6 +114,10 @@
     letter-spacing: 6px;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  .insights {
+    margin-bottom: var(--spacing-8);
   }
 
   :global(.hero h2 span:first-of-type) {

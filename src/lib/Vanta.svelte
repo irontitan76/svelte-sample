@@ -1,5 +1,6 @@
-<script lang="ts">
+<script>
   import { getContext, onMount } from 'svelte';
+  import { browser } from '$app/env';
   import LibLoader from '$lib/LibLoader.svelte';
 
   export let type;
@@ -57,23 +58,34 @@
   };
 
   const isVantaLoaded = () => {
-    (contrast as any).subscribe(mode => {
-      const setting = typeof settings[type] === 'function'
-        ? settings[type](mode)
-        : settings[type];
-        
-      (window as any).VANTA[type.toUpperCase()](setting)
-    });
+    if (browser && loaded) {
+      contrast.subscribe(mode => {
+        const setting = typeof settings[type] === 'function'
+          ? settings[type](mode)
+          : settings[type];
+        globalThis.VANTA[type.toUpperCase()](setting)
+      });
+    }
+
+    if (!loaded) {
+      loaded = true; // hacky way
+      isVantaLoaded();
+    }
   };
+
+  onMount(() => {
+    return () => {
+      const canvases = document.getElementsByClassName('vanta-canvas');
+      return canvases?.[0];
+    };
+  });
 </script>
 
 <LibLoader
   on:loaded={is3DLoaded}
   url={scripts[type][0]}
 />
-{#if loaded}
 <LibLoader
   on:loaded={isVantaLoaded}
   url={scripts[type][1]}
 />
-{/if}

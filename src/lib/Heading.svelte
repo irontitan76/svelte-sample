@@ -1,11 +1,15 @@
 <script lang="ts">
   export let title;
   export let subtitle = null;
+
+  import { formatMessage } from '$lib/lang/en-US.svelte';
 </script>
 
-<h2 class={`title ${subtitle ? 'noGutters' : ''}`}>{title}</h2>
+<h2 class={`title ${subtitle ? 'noGutters' : ''}`}>
+  {formatMessage({ id: title })}
+</h2>
 {#if subtitle}
-  <h3 class="subtitle">{subtitle}</h3>
+  <h3 class="subtitle">{formatMessage({ id: subtitle })}</h3>
 {/if}
 
 <style>
